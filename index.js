@@ -1,12 +1,12 @@
-var node = document.createElement("a");
+let node = document.createElement("a");
 node.className = "board-header-btn";
 node.id = "calc-day";
-var textnode = document.createTextNode("Calcular dia");
+let textnode = document.createTextNode("Calcular dia");
 node.appendChild(textnode);
 
 document.querySelector("div.mod-right").id = "head-buttons";
-var divAtual = document.getElementById("head-buttons"); 
-divAtual.appendChild(node);
+let headButtons = document.getElementById("head-buttons"); 
+headButtons.appendChild(node);
 
 document.querySelectorAll('.list-header-name').forEach( el => {
     if( el.textContent == "Feito")
