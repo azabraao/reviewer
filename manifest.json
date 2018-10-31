@@ -3,19 +3,18 @@
     "name": "Reviewer",
     "description": "Review for Trello",
     "version": "0.0.1",
-    "icons": {
-        "128": "128.png"
+    "browser_action": {
+        "default_popup":"popup.html",
+        "default_icon": "128.png"
     },
-    "browser_action":{
-        "default_popup":"popup.html"
-    },
-    "permissions":[
-        "activeTab"
-    ],
+    "permissions":[ "activeTab","declarativeContent"],
     "content_scripts":[
         {
-            "matches": ["https://*.trello.com/*"],
+            "matches": ["https://trello.com/b/LrhevKMP/pessoal"],
             "js": ["index.js"]
         }
-    ]
+    ],
+    "icons": {
+        "128": "128.png"
+    }
 }
