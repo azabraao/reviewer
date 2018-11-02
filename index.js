@@ -21,4 +21,16 @@ window.onload = function(){
             document.getElementById('dayScore').textContent = "Pontos hoje: "+sum;
         });
     });
+    window.addEventListener('keypress',function(e){
+        switch(e.keyCode){
+            case 100:
+                var sum=0;
+                document.querySelectorAll('.card-label').forEach( el => { 
+                    sum += parseInt(el.textContent) 
+                });
+                alert(sum);
+            break;
+        }
+    });
 }
+
