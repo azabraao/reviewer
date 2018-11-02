@@ -30,8 +30,8 @@ function ReviewCalculator(){
   }
   this.calculatesMonth = function(){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.executeScript(
-        tabs[0].id,{code:"var count = 0,sum = 0; document.querySelectorAll('.current-comment').forEach( el => {let arr = el.textContent.split('-'); sum += parseInt(arr[0]);	count++;})"}
+      chrome.tabs.executeScript(        
+        tabs[0].id,{code:"var count = 0,sum = 0;document.querySelectorAll('.current-comment').forEach( el => {let arr = el.textContent.split('-');if((sum + parseInt(arr[0]))){sum += parseInt(arr[0]);;}});"}
       );
       chrome.tabs.executeScript(tabs[0].id,{code:'alert(sum)'});
     });
