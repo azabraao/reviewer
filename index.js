@@ -21,16 +21,37 @@ window.onload = function(){
             document.getElementById('dayScore').textContent = "Pontos hoje: "+sum;
         });
     });
-    window.addEventListener('keypress',function(e){
-        switch(e.keyCode){
-            case 100:
-                var sum=0;
-                document.querySelectorAll('.card-label').forEach( el => { 
-                    sum += parseInt(el.textContent) 
-                });
-                alert(sum);
-            break;
+    window.addEventListener('keyup',function(e){
+        // Day calculation. Shortcut letter T with alt key.
+        if(e.altKey && e.keyCode == 84){
+            var sum=0;
+            document.querySelectorAll('.card-label').forEach( el => { 
+                sum += parseInt(el.textContent) 
+            });
+            alert(sum);
         }
+        // Week calculation. Shortcut letter S with alt key.
+        if(e.altKey && e.keyCode == 83){
+            var count = 0,sum = 0; 
+            document.querySelectorAll('.current-comment').forEach( el => {
+                if(count <= 7){
+                    let arr = el.textContent.split('-'); 
+                    sum += parseInt(arr[0]);	
+                    count++;
+                }
+            });
+            alert(sum);
+        }
+        // Month calculation. Shortcut letter M with alt key.        
+        if(e.altKey && e.keyCode == 77){
+            var count = 0,sum = 0;
+            document.querySelectorAll('.current-comment').forEach( el => {
+                let arr = el.textContent.split('-');
+                if((sum + parseInt(arr[0]))){
+                    sum += parseInt(arr[0]);
+                }
+            });
+            alert(sum);
+        }  
     });
 }
-
